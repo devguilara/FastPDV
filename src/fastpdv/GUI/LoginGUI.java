@@ -5,15 +5,24 @@
 package fastpdv.GUI;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 
 /**
  *
  * @author devguilara
  */
 public class LoginGUI extends javax.swing.JFrame {
-
+    
+        private Timer timer;
+        private int progress = 0;
+        
     public LoginGUI() {
+
+        setResizable(false);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -21,86 +30,107 @@ public class LoginGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jlblUser = new javax.swing.JLabel();
+        jlblPass = new javax.swing.JLabel();
+        jbtnLogin = new javax.swing.JButton();
+        jtxtUser = new javax.swing.JTextField();
+        jtxtPass = new javax.swing.JPasswordField();
+        jcbxRemeber = new javax.swing.JCheckBox();
+        LoginText = new javax.swing.JLabel();
+        jProgressBar1 = new javax.swing.JProgressBar();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Usuario");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setText("Senha");
+        jlblUser.setText("Usuario");
 
-        jButton1.setText("Login");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jlblPass.setText("Senha");
+
+        jbtnLogin.setText("Login");
+        jbtnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbtnLoginActionPerformed(evt);
             }
         });
 
-        jTextField1.setToolTipText("");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jtxtUser.setBackground(new java.awt.Color(204, 204, 204));
+        jtxtUser.setToolTipText("");
+        jtxtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jtxtUserActionPerformed(evt);
             }
         });
 
-        jCheckBox1.setText("Lembrar-me");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        jtxtPass.setBackground(new java.awt.Color(204, 204, 204));
+
+        jcbxRemeber.setBackground(new java.awt.Color(255, 255, 255));
+        jcbxRemeber.setText("Lembrar-me");
+        jcbxRemeber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                jcbxRemeberActionPerformed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Liberation Sans", 0, 48)); // NOI18N
-        jLabel3.setText("Login");
+        LoginText.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        LoginText.setText("Login");
+
+        jProgressBar1.setBackground(new java.awt.Color(255, 255, 255));
+        jProgressBar1.setForeground(new java.awt.Color(0, 204, 51));
+        jProgressBar1.setBorder(null);
+
+        jLabel1.setFont(new java.awt.Font("Liberation Sans", 0, 10)); // NOI18N
+        jLabel1.setText("Versão 0.0.0.1 |  Build<none>");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addContainerGap(39, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jCheckBox1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField1)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)))
-                .addContainerGap(47, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(106, 106, 106))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(LoginText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(155, 155, 155))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jlblUser)
+                            .addComponent(jlblPass))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jcbxRemeber)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jbtnLogin))
+                            .addComponent(jtxtUser, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtxtPass, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(37, 37, 37))))
+            .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1)
+                .addGap(30, 30, 30)
+                .addComponent(LoginText, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jlblUser)
+                    .addComponent(jtxtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jlblPass)
+                    .addComponent(jtxtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jCheckBox1))
-                .addContainerGap(74, Short.MAX_VALUE))
+                    .addComponent(jbtnLogin)
+                    .addComponent(jcbxRemeber))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -117,48 +147,47 @@ public class LoginGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            // TODO add your handling code here:
-            JOptionPane.showMessageDialog(LoginGUI.this,"Logado com sucesso");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jcbxRemeberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbxRemeberActionPerformed
+    }//GEN-LAST:event_jcbxRemeberActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void jtxtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtUserActionPerformed
+    }//GEN-LAST:event_jtxtUserActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    private void jbtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnLoginActionPerformed
+        
+        String pass = new String(jtxtPass.getPassword());
+        if(jtxtPass.equals("admin") || pass.equals("admin")){
+            startLoginProgress();
+             
+        }else{
+            JOptionPane.showMessageDialog(LoginGUI.this,"Usuário ou  senha Inválidos", "Login", JOptionPane.INFORMATION_MESSAGE);
+        }
+         
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+    }//GEN-LAST:event_jbtnLoginActionPerformed
+
+    private void startLoginProgress() {
+        timer = new Timer(25, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                progress += 2;  
+                jProgressBar1.setValue(progress); 
+
+                if (progress >= 100) {
+                    timer.stop(); 
+                    JOptionPane.showMessageDialog(LoginGUI.this, "Logado com sucesso", "Login", JOptionPane.INFORMATION_MESSAGE);
+                    DashboardGUI dashboard = new DashboardGUI();
+                    dashboard.setVisible(true);
+                    dispose();
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+        });
+        
+        timer.start();  // Inicia o timer
+       
+    }
 
-        /* Create and display the form */
+     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LoginGUI().setVisible(true);
@@ -167,13 +196,15 @@ public class LoginGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JLabel LoginText;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JButton jbtnLogin;
+    private javax.swing.JCheckBox jcbxRemeber;
+    private javax.swing.JLabel jlblPass;
+    private javax.swing.JLabel jlblUser;
+    private javax.swing.JPasswordField jtxtPass;
+    private javax.swing.JTextField jtxtUser;
     // End of variables declaration//GEN-END:variables
 }

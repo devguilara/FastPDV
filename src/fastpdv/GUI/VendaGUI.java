@@ -4,6 +4,8 @@
  */
 package fastpdv.GUI;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author devguilara
@@ -26,7 +28,103 @@ public class VendaGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jmenuCaixa = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jmenuVenda = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jmenuCadastros = new javax.swing.JMenu();
+        jmenuProdutos = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jmenuCliente = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jmenuFornecedor = new javax.swing.JMenu();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem11 = new javax.swing.JMenuItem();
+        jmenuExit = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jmenuCaixa.setText("Caixa");
+
+        jMenuItem2.setText("Abrir Caixa");
+        jmenuCaixa.add(jMenuItem2);
+
+        jMenuItem3.setText("Fechar Caixa");
+        jmenuCaixa.add(jMenuItem3);
+
+        jMenuBar2.add(jmenuCaixa);
+
+        jmenuVenda.setText("Venda");
+
+        jMenuItem4.setText("Nova Venda");
+        jmenuVenda.add(jMenuItem4);
+
+        jMenuItem5.setText("Cancelar Venda");
+        jmenuVenda.add(jMenuItem5);
+
+        jMenuBar2.add(jmenuVenda);
+
+        jmenuCadastros.setText("Cadastros");
+
+        jmenuProdutos.setText("Produtos");
+
+        jMenuItem6.setText("Adicionar Produto");
+        jmenuProdutos.add(jMenuItem6);
+
+        jMenuItem7.setText("Editar Produto");
+        jmenuProdutos.add(jMenuItem7);
+
+        jmenuCadastros.add(jmenuProdutos);
+
+        jmenuCliente.setText("Cliente");
+
+        jMenuItem1.setText("Adicionar Cliente");
+        jmenuCliente.add(jMenuItem1);
+
+        jMenuItem8.setText("Editar Cliente");
+        jmenuCliente.add(jMenuItem8);
+
+        jmenuCadastros.add(jmenuCliente);
+
+        jmenuFornecedor.setText("Fornecedor");
+        jmenuFornecedor.setToolTipText("");
+
+        jMenuItem9.setText("Cadastrar Fornecedor");
+        jmenuFornecedor.add(jMenuItem9);
+
+        jMenuItem10.setText("Editar Fornecedor");
+        jmenuFornecedor.add(jMenuItem10);
+
+        jmenuCadastros.add(jmenuFornecedor);
+
+        jMenuBar2.add(jmenuCadastros);
+
+        jMenu1.setText("Relatorios");
+
+        jMenuItem11.setText("Relatorio de Vendas");
+        jMenu1.add(jMenuItem11);
+
+        jMenuBar2.add(jMenu1);
+
+        jmenuExit.setText("Sair");
+        jmenuExit.setAlignmentX(200.0F);
+        jmenuExit.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jmenuExit.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jmenuExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jmenuExitMouseClicked(evt);
+            }
+        });
+        jMenuBar2.add(jmenuExit);
+
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -36,12 +134,29 @@ public class VendaGUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 275, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jmenuExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmenuExitMouseClicked
+        // TODO add your handling code here:
+        btnMenuSair();
+    }//GEN-LAST:event_jmenuExitMouseClicked
+    private void btnMenuSair() {
+            int resposta = JOptionPane.showConfirmDialog(
+                    this, 
+                    "Deseja mesmo sair do sistema?", 
+                    "Sair", 
+                    JOptionPane.YES_NO_OPTION, 
+                    JOptionPane.QUESTION_MESSAGE
+            );
+
+            if (resposta == JOptionPane.YES_OPTION) {
+                dispose();
+            }
+        }
     /**
      * @param args the command line arguments
      */
@@ -78,5 +193,25 @@ public class VendaGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenu jmenuCadastros;
+    private javax.swing.JMenu jmenuCaixa;
+    private javax.swing.JMenu jmenuCliente;
+    private javax.swing.JMenu jmenuExit;
+    private javax.swing.JMenu jmenuFornecedor;
+    private javax.swing.JMenu jmenuProdutos;
+    private javax.swing.JMenu jmenuVenda;
     // End of variables declaration//GEN-END:variables
 }
