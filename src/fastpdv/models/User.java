@@ -8,10 +8,11 @@ package fastpdv.models;
  *
  * @author devguilara
  */
-public class Usuario {
+public class User {
     private int id;
     private String nome;
     private String email;
+
     
     public int getId() {
         return id;
