@@ -4,10 +4,19 @@
  */
 package fastpdv.controllers;
 
+import fastpdv.models.Usuario;
+
 /**
  *
  * @author devguilara
  */
-public class ClienteController {
+public class UsuarioController {
     
+    public Usuario getUserById(int userId){
+        return null;
+    }
+    
+    public Usuario getAllUsers(){
+        return null;
+    }
 }
