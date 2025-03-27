@@ -1,2 +1,7 @@
 /build
 /nbproject
+/src/fastpdv/database/DatabaseConnectionTest.java
+/src/fastpdv/database.properties
+.vscode
+
+
